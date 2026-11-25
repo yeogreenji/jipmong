@@ -1,0 +1,16 @@
+node_modules/
+dist/
+dist-ssr/
+.env
+.env.local
+.env.*.local
+*.local
+.DS_Store
+test-results/
+playwright-report/
+blob-report/
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+.vercel/

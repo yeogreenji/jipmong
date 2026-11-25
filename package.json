@@ -1,0 +1,31 @@
+{
+  "name": "jipmong",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "집몽(JIPMONG) — 꿈의 집과 생활을 발견하고 내 집 마련까지 함께하는 주거 프로젝트 웹앱",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.api.json",
+    "preview": "vite preview",
+    "test:e2e": "playwright test",
+    "shots": "node scripts/shots.mjs",
+    "check": "npm run typecheck && npm run build && npm run test:e2e"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@tailwindcss/vite": "^4.1.13",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.2",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5"
+  }
+}

@@ -1,0 +1,76 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+/* =============================================================
+   기본 문서 스타일
+   ============================================================= */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background:
+    radial-gradient(1200px 520px at 12% -8%, var(--color-dawn) 0%, transparent 62%),
+    radial-gradient(900px 420px at 92% 4%, var(--color-sprout-soft) 0%, transparent 58%),
+    var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01" on;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-apricot);
+  color: #241f1a;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-moss);
+  outline-offset: 2px;
+}
+
+/* 숫자 입력에서 스피너를 숨겨 모바일에서 폭이 흔들리지 않게 합니다. */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* 타임라인 세로선 */
+.jm-timeline {
+  position: relative;
+}
+.jm-timeline::before {
+  content: "";
+  position: absolute;
+  left: 1.1rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-sprout) 0%,
+    var(--color-line) 55%,
+    transparent 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

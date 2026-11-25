@@ -1,0 +1,125 @@
+/* =============================================================
+   집몽(JIPMONG) 디자인 토큰
+   -------------------------------------------------------------
+   색감·폰트·간격은 이 파일 하나만 고치면 앱 전체에 반영됩니다.
+   (로렌·브리: 새 색을 실험할 때 여기 값만 바꾸고 새로고침하세요.
+    컴포넌트 파일은 건드리지 않아도 됩니다.)
+   기준: 2026-11-26 · v0.1 뼈대
+   ============================================================= */
+
+/* 자체 호스팅 Pretendard — 외부 CDN 없이 동작합니다. (SIL Open Font License 1.1) */
+@font-face {
+  font-family: "Pretendard";
+  src: url("/assets/fonts/Pretendard-Regular.woff2") format("woff2");
+  font-weight: 100 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("/assets/fonts/Pretendard-Bold.woff2") format("woff2");
+  font-weight: 600 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* ── 바탕과 종이 ───────────────────────────────────────── */
+  --color-cream: #fbf6ef;
+  --color-paper: #ffffff;
+  --color-sand: #f3e7d8;
+  --color-dawn: #fbe3cf;
+  --color-line: #e9ddcd;
+  --color-line-strong: #d9c8b3;
+
+  /* ── 글자 ─────────────────────────────────────────────── */
+  --color-ink: #241f1a;
+  --color-ink-soft: #6c6259;
+  --color-ink-faint: #9a8f84;
+
+  /* ── 집몽의 색 (브랜드) ───────────────────────────────── */
+  --color-moss: #2f5b4a;
+  --color-moss-deep: #24463a;
+  --color-sprout: #8ab99c;
+  --color-sprout-soft: #e3efe6;
+  --color-apricot: #f0a177;
+  --color-apricot-soft: #fdeadd;
+  --color-clay: #c2653f;
+  --color-clay-soft: #f7dfd3;
+
+  /* ── 상태 ─────────────────────────────────────────────── */
+  --color-info: #3d6b8f;
+  --color-info-soft: #e4eef5;
+  --color-warn: #a8552c;
+  --color-warn-soft: #fbe9dd;
+  --color-ok: #3f7a5c;
+  --color-ok-soft: #e5f1e9;
+
+  /* ── 타이포 ───────────────────────────────────────────── */
+  /* Pretendard(한글·라틴) 자체 호스팅. 라틴도 Pretendard로 통일해 굵기 편차가 없습니다.
+     다른 서체로 바꾸려면 아래 두 줄만 고치면 앱 전체에 반영됩니다. */
+  --font-sans: "Pretendard", system-ui, -apple-system, "Segoe UI", Roboto, "Apple SD Gothic Neo",
+    "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --font-display: "Pretendard", system-ui, -apple-system, "Segoe UI", Roboto, "Apple SD Gothic Neo",
+    "Noto Sans KR", sans-serif;
+  --font-mono: "SFMono-Regular", "Cascadia Mono", "D2Coding", ui-monospace, monospace;
+
+  /* ── 모양 ─────────────────────────────────────────────── */
+  --radius-card: 1.25rem;
+  --radius-pill: 999px;
+  --shadow-card: 0 1px 2px rgb(36 31 26 / 0.04), 0 10px 30px -18px rgb(36 31 26 / 0.35);
+  --shadow-float: 0 18px 50px -24px rgb(36 31 26 / 0.45);
+
+  /* ── 화면 폭 ──────────────────────────────────────────── */
+  --container-app: 76rem;
+}
+
+/* 앱 공통 표면 — 컴포넌트가 길어지지 않도록 반복 패턴만 모았습니다. */
+@layer components {
+  .jm-card {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .jm-field {
+    width: 100%;
+    border: 1px solid var(--color-line);
+    border-radius: 0.75rem;
+    background: var(--color-paper);
+    padding: 0.55rem 0.75rem;
+    font-size: 0.95rem;
+    color: var(--color-ink);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .jm-field:focus {
+    border-color: var(--color-sprout);
+    box-shadow: 0 0 0 3px var(--color-sprout-soft);
+  }
+
+  .jm-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-pill);
+    padding: 0.35rem 0.8rem;
+    font-size: 0.85rem;
+    color: var(--color-ink-soft);
+    background: var(--color-paper);
+    transition: all 0.15s ease;
+    cursor: pointer;
+  }
+  .jm-chip:hover {
+    border-color: var(--color-sprout);
+    color: var(--color-moss);
+  }
+  .jm-chip[aria-pressed="true"] {
+    background: var(--color-moss);
+    border-color: var(--color-moss);
+    color: var(--color-cream);
+  }
+}
